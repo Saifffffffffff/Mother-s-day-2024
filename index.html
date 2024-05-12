@@ -18,6 +18,8 @@
             background-size: cover;
             background-image: url("Image3.jpg");
             background-position: center center;
+            margin: 0; /* Reset default margin */
+            padding: 0; /* Reset default padding */
         }
 
         .paper {
@@ -48,8 +50,8 @@
         }
 
         img {
-            max-height: 100%; /* Ensure images don't overflow */
-            width: auto; /* Responsive width */
+            max-width: 100%; /* Make images responsive */
+            height: auto; /* Ensure aspect ratio is maintained */
             user-select: none;
         }
 
@@ -113,6 +115,7 @@
             transform: translate(-50%, -50%);
             z-index: 999;
             width: 90%; /* Adjust width for smaller screens */
+            max-width: 400px; /* Set a maximum width */
             font-family: 'Dancing Script', cursive;
             font-size: 24px;
             color: #e91e63;
@@ -142,7 +145,7 @@
             }
 
             .paper:nth-of-type(3n) {
-                background-position: center center;
+                background-position: center center; /* Adjust background position */
             }
         }
 
@@ -161,12 +164,11 @@
     <div id="popup">
         Thank you
         <img src="https://e1.pxfuel.com/desktop-wallpaper/783/272/desktop-wallpaper-naruto-love-hinata-naruto-and-hinata-kiss.jpg"
-            style="aspect-ratio: 1/1">
+            alt="Popup Image">
     </div>
 
-    <div
-        class="loveTEXT">
-        <p>Have a wonderful Mother's day, Mum <br>We love you more than words can say!</p>
+    <div>
+        <b class="loveTEXT">Have a wonderful Mother's day, Mum <br>We love you more than words can say!</b>
     </div>
 
     <!-- Saravanan Code -->
@@ -174,15 +176,15 @@
     <div class="paper heart"></div>
     <div class="paper image">
         <p>WE LOVE YOU</p>
-        <img src="Image5.jpeg" />
+        <img src="Image5.jpeg" alt="Image 5">
     </div>
     <div class="paper image">
         <p>The values you taught inspire us to keep going 😍</p>
-        <img src="Image2.jpeg" />
+        <img src="Image2.jpeg" alt="Image 2">
     </div>
     <div class="paper image">
         <p>How can someone be so cute ❤️ and amazing?</p>
-        <img src="Image1.jpeg" />
+        <img src="Image1.jpeg" alt="Image 1">
     </div>
     <div class="paper">
         <p class="p1">You're Our Favorite</p>
@@ -193,9 +195,7 @@
         <p class="p1">Love you Mamma <span style="color: red !important;">❤️</span></p>
     </div>
     <div class="paper">
-        <
-
-p class="p1">Drag the slides to move!</p>
+        <p class="p1">Drag the slides to move!</p>
     </div>
     <!-- javascript file -->
     <script>
