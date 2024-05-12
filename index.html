@@ -206,7 +206,7 @@
             touchStartY = 0;
             touchMoveX = 0;
             touchMoveY = 0;
-            rotation = Math.random() * 30 - 15;
+            sensitivity = 0.3; // Adjust sensitivity here
             init(paper) {
                 paper.addEventListener('mousedown', (e) => {
                     this.holdingPaper = true;
@@ -226,20 +226,18 @@
                     if (this.holdingPaper) {
                         this.touchMoveX = e.clientX;
                         this.touchMoveY = e.clientY;
-                        const diffX = this.touchMoveX - this.touchStartX;
-                        const diffY = this.touchMoveY - this.touchStartY;
-                        const rotation = Math.atan2(diffY, diffX) * (180 / Math.PI);
-                        paper.style.transform = `translate(${diffX}px, ${diffY}px) rotateZ(${rotation}deg)`;
+                        const diffX = (this.touchMoveX - this.touchStartX) * this.sensitivity;
+                        const diffY = (this.touchMoveY - this.touchStartY) * this.sensitivity;
+                        paper.style.transform = `translate(${diffX}px, ${diffY}px)`;
                     }
                 });
                 window.addEventListener('touchmove', (e) => {
                     if (this.holdingPaper) {
                         this.touchMoveX = e.touches[0].clientX;
                         this.touchMoveY = e.touches[0].clientY;
-                        const diffX = this.touchMoveX - this.touchStartX;
-                        const diffY = this.touchMoveY - this.touchStartY;
-                        const rotation = Math.atan2(diffY, diffX) * (180 / Math.PI);
-                        paper.style.transform = `translate(${diffX}px, ${diffY}px) rotateZ(${rotation}deg)`;
+                        const diffX = (this.touchMoveX - this.touchStartX) * this.sensitivity;
+                        const diffY = (this.touchMoveY - this.touchStartY) * this.sensitivity;
+                        paper.style.transform = `translate(${diffX}px, ${diffY}px)`;
                     }
                 });
                 window.addEventListener('mouseup', () => {
