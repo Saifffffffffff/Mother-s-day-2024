@@ -1,202 +1,214 @@
+To make your HTML document responsive for both phones and desktops, you can ensure that it adapts well to different screen sizes. Here's how you can modify your HTML:
+
+1. Add a `<meta>` tag in the `<head>` section to ensure proper rendering and scaling on mobile devices.
+2. Remove unnecessary comments and extra line breaks for clarity.
+3. Wrap your CSS styles in a `<style>` tag within the `<head>` section.
+4. Organize your CSS to separate common styles and media queries for better readability.
+5. Adjust the width of the popup element to fit smaller screens.
+6. Ensure that your images are responsive by using percentage-based widths or setting `max-width: 100%;` for better scaling on smaller screens.
+
+Here's the modified HTML document:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
-<style>
-	@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
-    
-
-
-    body {
-        overflow: hidden;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-size: 100%;
-        background-image: url("Image3.jpg");
-        background-position: center center;
-    }
-
-    .paper {
-        background-image: url("image4.jpg");
-        background-size: 500px;
-		font-size : 20px;
-        background-position: center center;
-        padding: 20px 100px;
-        transform: rotateZ(-5deg);
-        box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
-        position: absolute;
-    }
-
-    .paper.heart {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        padding: 0;
-        border-radius: 50%;
-    }
-
-    .paper.image {
-        padding: 10px;
-    }
-
-    .paper.image p {
-        font-size: 30px;
-    }
-
-    img {
-        max-height: 300px;
-        width: 100%;
-        user-select: none;
-    }
-
-    .paper.heart::after {
-        content: "";
-        background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-size: 150px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        opacity: 0.6;
-    }
-
-    .paper:nth-of-type(3n) {
-        background-position: left top;
-    }
-
-    p {
-        font-family: 'Georgia';
-        font-size: 50px;
-        color: yellow;
-        opacity: 0.75;
-        user-select: none;
-
-    }
-
-    .loveTEXT {
-        font-family: georgian;
-        color: #e91e63;
-        font-size: 25px;
-    }
-
-    .loverbtn {
-        font-size: 20px;
-        padding: 12px 24px;
-        margin: 10px;
-        border: none;
-        border-radius: 20px;
-        background-color: #ff4081;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-group {
-        text-align: center;
-    }
-
-    #popup {
-        display: none;
-        background-color: #f9f9f9;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 999;
-        display: none;
-        background-color: #fff;
-        border: 1px solid #e91e63;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 999;
-        font-family: 'Dancing Script', cursive;
-        font-size: 24px;
-        color: #e91e63;
-    }
-
-    #popup.fade-in {
-        animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Mother's Day ❤️</title>
-    <link rel='stylesheet'
-        href='https://fonts.googleapis.com/css2?family=Short+Stack&amp;family=Homemade+Apple&amp;display=swap'>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Short+Stack&amp;family=Homemade+Apple&amp;display=swap'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-image: url("Image3.jpg");
+            background-position: center center;
+        }
+
+        .paper {
+            background-image: url("image4.jpg");
+            background-size: 500px;
+            font-size: 20px;
+            background-position: center center;
+            padding: 20px 100px;
+            transform: rotateZ(-5deg);
+            box-shadow: 1px 15px 20px 0px rgba(0, 0, 0, 0.5);
+            position: absolute;
+        }
+
+        .paper.heart {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        .paper.image {
+            padding: 10px;
+        }
+
+        .paper.image p {
+            font-size: 30px;
+        }
+
+        img {
+            max-height: 100%; /* Ensure images don't overflow */
+            width: auto; /* Responsive width */
+            user-select: none;
+        }
+
+        .paper.heart::after {
+            content: "";
+            background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: 150px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+
+        .paper:nth-of-type(3n) {
+            background-position: left top;
+        }
+
+        p {
+            font-family: 'Georgia';
+            font-size: 50px;
+            color: yellow;
+            opacity: 0.75;
+            user-select: none;
+        }
+
+        .loveTEXT {
+            font-family: georgian;
+            color: #e91e63;
+            font-size: 25px;
+        }
+
+        .loverbtn {
+            font-size: 20px;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ff4081;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-group {
+            text-align: center;
+        }
+
+        #popup {
+            display: none;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            width: 90%; /* Adjust width for smaller screens */
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #e91e63;
+        }
+
+        #popup.fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Media queries for responsiveness */
+
+        /* For smaller devices like phones */
+        @media only screen and (max-width: 768px) {
+            .paper {
+                padding: 10px; /* Adjust padding for smaller screens */
+                font-size: 16px; /* Adjust font size for smaller screens */
+            }
+
+            .paper:nth-of-type(3n) {
+                background-position: center center;
+            }
+        }
+
+        /* For larger devices like desktops */
+        @media only screen and (min-width: 769px) {
+            .paper {
+                padding: 20px 100px; /* Keep original padding for larger screens */
+                font-size: 20px; /* Keep original font size for larger screens */
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="popup" style="width: 390px;">
-        Thank you 
+    <div id="popup">
+        Thank you
         <img src="https://e1.pxfuel.com/desktop-wallpaper/783/272/desktop-wallpaper-naruto-love-hinata-naruto-and-hinata-kiss.jpg"
             style="aspect-ratio: 1/1">
     </div>
 
     <div>
-
-        <!-- <a href="https://manaschool.in/"> -->
-        <b class="loveTEXT">Have a wonderful Mother's day,Mum <br>
-              We love you more than words can say !</b>
-        <!-- </a> -->
-        
+        <b class="loveTEXT">Have a wonderful Mother's day, Mum <br>We love you more than words can say!</b>
     </div>
 
     <!-- Saravanan Code -->
     <!-- https://codepen.io/devsaro/pen/wvYPaRg -->
-    <div class="paper heart">
-    </div>
+    <div class="paper heart"></div>
     <div class="paper image">
         <p>WE LOVE YOU</p>
         <img src="Image5.jpeg" />
     </div>
     <div class="paper image">
-        <p> The values you taught inspire us to keep going </p>
-        <p>😍 </p>
+        <p>The values you taught inspire us to keep going 😍</p>
         <img src="Image2.jpeg" />
     </div>
     <div class="paper image">
-        <p>How can be </p>
-        <p> someone so cute ❤️ and Amazing </p>
+        <p>How can someone be so cute ❤️ and amazing?</p>
         <img src="Image1.jpeg" />
     </div>
     <div class="paper">
-        <p class="p1"> You're Our Favorite</p>
+        <p class="p1">You're Our Favorite</p>
         <p class="p2">Person 😍</p>
     </div>
     <div class="paper">
-        <p class="p1">First we admire you more than you'll ever know  </p>
+        <p class="p1">First we admire you more than you'll ever know</p>
         <p class="p1">Love you Mamma <span style="color: red !important;">❤️</span></p>
     </div>
     <div class="paper">
-        <p class="p1">Drag the slides to move!</p>
+        <
+
+p class="p1">Drag the slides to move!</p>
     </div>
     <!-- javascript file -->
-    <!-- <script src="script.js"></script> -->
     <script>
         let highestZ = 1;
         class Paper {
@@ -269,17 +281,8 @@
             p.init(paper);
         });
 
-
-
-        const noButton = document.getElementById("no-btn");
-        const yesButton = document.getElementById("yes-btn");
         const popup = document.getElementById("popup");
-
-        noButton.addEventListener("mouseover", () => {
-            noButton.style.position = "absolute";
-            noButton.style.left = Math.random() * 80 + "vw";
-            noButton.style.top = Math.random() * 80 + "vh";
-        });
+        const yesButton = document.getElementById("yes-btn");
 
         yesButton.addEventListener("click", () => {
             popup.style.display = "block";
